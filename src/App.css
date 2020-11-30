@@ -3,8 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100%;
-
-  font-family: "Acme", sans-serif;
+  font-family: "Do Hyeon", sans-serif;
 }
 
 a {
@@ -13,6 +12,9 @@ a {
 
 li {
   list-style: none;
+}
+input {
+  font-weight: bold;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

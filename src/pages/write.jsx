@@ -32,10 +32,10 @@ const Write = (props) => {
       }).then((response) => {
         console.log(response);
       });
-      alert("It has been saved.");
+      alert("게시글이 저장되었습니다.");
       props.history.push("/board");
     } else {
-      alert("Fill in all the blanks, please.");
+      alert("입력사항을 모두 작성해주세요.");
     }
   };
 
@@ -73,9 +73,9 @@ const Write = (props) => {
         <h1>Board</h1>
       </div>
       <form action="">
-        <label htmlFor="">Title</label>
+        <label htmlFor="">제목</label>
         <input name="title" type="text" onChange={_handleChange} />
-        <label htmlFor="">Description</label>
+        <label htmlFor="">작성내용</label>
       </form>
 
       <textarea
@@ -86,7 +86,9 @@ const Write = (props) => {
       ></textarea>
       <div className="write-btn">
         <button>
-          <a onClick={_save}>Save</a>
+          <a onClick={_save}>
+            <b>저장</b>
+          </a>
         </button>
       </div>
     </div>

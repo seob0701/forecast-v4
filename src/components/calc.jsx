@@ -188,16 +188,18 @@ const Calc = () => {
     <div className="calc">
       <div className="calc-box">
         <section className="calc-form">
-          <h2>calculator</h2>
+          <h2>배추가격 예측하기</h2>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="">Please enter the date you want.</label>
+            <label htmlFor="">
+              <b>예측 날짜를 입력하세요</b>
+            </label>
             <div style={{ justifyContent: "center" }}>
               <select
                 name="year"
                 onChange={(e) =>
                   setDateValue({ ...dateValue, YYYY: e.target.value })
                 }
-                style={{ width: "65px", outline: "none" }}
+                style={{ width: "65px", outline: "none", marginRight: "4px" }}
               >
                 <option value="2020">2020</option>
                 <option value="2021">2021</option>
@@ -227,7 +229,9 @@ const Calc = () => {
               />
               <b>일</b>
             </div>
-            <label htmlFor="">Location / precipitation volume</label>
+            <label htmlFor="">
+              <b>기준 위치 및 강수량</b>
+            </label>
             <div>
               <GrMapLocation />
               <input
@@ -244,24 +248,22 @@ const Calc = () => {
                 style={{ width: "50%" }}
               />
             </div>
-            <label htmlFor="">Weather (Temperature)</label>
+            <label htmlFor="">
+              <b>기온</b>
+            </label>
             <div>
               <TiWeatherSunny />
               <input
                 type="text"
                 style={{ flex: "1" }}
-                value={
-                  locationWeather.hourly[0].temp +
-                  " / " +
-                  locationWeather.daily[0].temp.max +
-                  " / " +
-                  locationWeather.daily[0].feels_like.night
-                }
+                value={`현재: ${locationWeather.hourly[0].temp} 최대: ${locationWeather.daily[0].temp.max} 최소: ${locationWeather.daily[0].feels_like.night}`}
                 readOnly
               />
             </div>
 
-            <label htmlFor="">result</label>
+            <label htmlFor="">
+              <b>계산 결과</b>
+            </label>
             <div>
               <BiCalculator />
               <input
@@ -270,8 +272,14 @@ const Calc = () => {
                 value={calcValue}
                 readOnly
               />
+              <b>원</b>
             </div>
-            <input className="calc-btn" type="submit" value="calculation" />
+            <input
+              className="calc-btn"
+              type="submit"
+              value="계산하기"
+              style={{ fontWeight: "bold" }}
+            />
           </form>
         </section>
       </div>

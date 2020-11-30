@@ -12,7 +12,7 @@ const About = () => {
         </div>
         <div className="desc-box">
           <div className="h2tag-box">
-            <h2>This is the cabbage price prediction website</h2>
+            <h2>이곳은 배추가격 예측을 도와주는 웹 페이지 입니다.</h2>
           </div>
           <div className="ptag-box">
             <img src={covid} alt="" />

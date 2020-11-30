@@ -43,13 +43,13 @@ const Register = (props) => {
         }).then((response) => {
           console.log(response);
         });
-        alert("Your subscription has been completed successfully.");
+        alert("회원가입이 완료되었습니다.");
         props.history.push("/login");
       } else {
-        alert("Password does not match.");
+        alert("비밀번호가 일치하지 않습니다.");
       }
     } else {
-      alert("Fill in all the blanks, please.");
+      alert("입력사항을 모두 작성해주세요.");
     }
   };
 
@@ -58,24 +58,24 @@ const Register = (props) => {
       <div className="login-box">
         <img src={door} alt="" />
         <section className="login-form">
-          <h1>register</h1>
+          <h1>회원가입</h1>
           <form>
-            <label htmlFor="">Name</label>
+            <label htmlFor="">이름</label>
             <div>
               <FaUserCircle />
               <input name="name" type="text" onChange={_handleChange} />
             </div>
-            <label htmlFor="">Email</label>
+            <label htmlFor="">이메일</label>
             <div>
               <MdEmail />
               <input name="email" type="text" onChange={_handleChange} />
             </div>
-            <label htmlFor="">Password</label>
+            <label htmlFor="">비밀번호</label>
             <div>
               <MdLock />
               <input name="password" type="password" onChange={_handleChange} />
             </div>
-            <label htmlFor="">Password Confirm</label>
+            <label htmlFor="">비밀번호 확인</label>
             <div>
               <MdLock />
               <input
@@ -87,13 +87,14 @@ const Register = (props) => {
             <input
               className="login-btn"
               type="button"
-              value="register"
+              value="회원가입"
               onClick={_register}
             />
           </form>
 
-          <p>Do you have an acccount?</p>
-          <a href="/login">SIGN IN</a>
+          <p>
+            <a href="/login">로그인</a>
+          </p>
         </section>
       </div>
     </div>

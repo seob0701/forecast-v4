@@ -47,29 +47,31 @@ const Nav = () => {
             {userInfo.map((ele, key) => {
               return (
                 <li style={{ backgroundColor: "white" }} key={ele.id}>
-                  <a style={{ color: "#276CF5" }}>{"Hello, " + ele.name}</a>
+                  <a style={{ color: "#276CF5" }}>
+                    {"반갑습니다, " + ele.name + " 님"}
+                  </a>
                 </li>
               );
             })}
 
             <li>
-              <a href="/about">About</a>
+              <a href="/about">소개</a>
             </li>
             <li>
-              <a href="/board">Board</a>
+              <a href="/board">게시판</a>
             </li>
             <li>
               {loggedStatus ? (
                 <a style={{ cursor: "pointer" }} onClick={_logout}>
-                  Log out
+                  로그아웃
                 </a>
               ) : (
-                <a href="/login">Log in</a>
+                <a href="/login">로그인</a>
               )}
             </li>
             {!loggedStatus && (
               <li>
-                <a href="/register">Register</a>
+                <a href="/register">회원가입</a>
               </li>
             )}
           </ul>

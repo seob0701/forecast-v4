@@ -64,9 +64,9 @@ const Board = (props) => {
           <thead>
             <tr>
               <th scope="cols">#</th>
-              <th scope="cols">Title</th>
-              <th scope="cols">Name</th>
-              <th scope="cols">Date</th>
+              <th scope="cols">제목</th>
+              <th scope="cols">작성자</th>
+              <th scope="cols">작성 날짜</th>
             </tr>
           </thead>
           <tbody>
@@ -98,7 +98,9 @@ const Board = (props) => {
       </div>
       <div className="write-btn">
         <button>
-          <a href="/write">Writing</a>
+          <a href="/write">
+            <b>작성하기</b>
+          </a>
         </button>
       </div>
       <div className="shop_btn">

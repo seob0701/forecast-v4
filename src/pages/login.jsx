@@ -20,17 +20,17 @@ const Login = (props) => {
       }).then((response) => {
         if (response.data.loginSuccess === false) {
           // console.log(response.data);
-          alert("Login failed.");
+          alert("로그인에 실패하였습니다.");
         } else {
           // console.log(response.data);
           //id, name , email, password 존재
-          alert("You have successfully logged in.");
+          alert("로그인에 성공하였습니다.");
           props.history.push("/");
           window.location.reload();
         }
       });
     } else {
-      alert("Fill in all the blanks, please.");
+      alert("입력사항을 모두 작성해주세요.");
     }
   };
 
@@ -48,14 +48,14 @@ const Login = (props) => {
       <div className="login-box">
         <img src={door} alt="" />
         <section className="login-form">
-          <h1>login</h1>
+          <h1>로그인</h1>
           <form>
-            <label htmlFor="">Email</label>
+            <label htmlFor="">이메일</label>
             <div>
               <MdEmail />
               <input name="email" type="text" onChange={_handleChange} />
             </div>
-            <label htmlFor="">Password</label>
+            <label htmlFor="">비밀번호</label>
             <div>
               <MdLock />
               <input name="password" type="password" onChange={_handleChange} />
@@ -63,13 +63,14 @@ const Login = (props) => {
             <input
               className="login-btn"
               type="button"
-              value="login"
+              value="로그인"
               onClick={_login}
             />
           </form>
 
-          <p>Have not acccount yet?</p>
-          <a href="/register">SIGN UP</a>
+          <p>
+            <a href="/register">회원가입</a>
+          </p>
         </section>
       </div>
     </div>

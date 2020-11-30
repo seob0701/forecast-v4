@@ -69,16 +69,16 @@ const View = (props) => {
 
   const _delete = () => {
     if (data.email === userInfo[0].email) {
-      if (window.confirm("Are you sure you want to delete the post?")) {
+      if (window.confirm("게시글을 삭제하시겠습니까?")) {
         Axios.post("http://localhost:3001/delete", {
           id: data.id,
         }).then((response) => {
           console.log(response);
         });
-        window.alert("The post has been deleted.");
+        window.alert("게시글이 삭제되었습니다.");
         props.history.push("/board");
       } else {
-        window.alert("Cancel the deletion.");
+        window.alert("취소되었습니다.");
       }
     }
   }; //db에서 삭제
@@ -92,7 +92,7 @@ const View = (props) => {
       }).then((response) => {
         console.log(response);
       });
-      alert("The post has been modified.");
+      alert("게시글이 수정되었습니다.");
       props.history.push("/board");
     }
   }; //db에서 삭제
@@ -104,15 +104,15 @@ const View = (props) => {
       </div>
 
       <form action="">
-        <label htmlFor="">Information</label>
+        <label htmlFor="">작성자 정보</label>
         <input
           name="title"
           type="text"
-          value={`Writer: ${data.name}   Email: ${data.email}   Date: ${data.date}`}
+          value={`작성자: ${data.name}   이메일: ${data.email}   날짜: ${data.date}`}
           style={{ fontWeight: "bold" }}
           readOnly
         />
-        <label htmlFor="">Title</label>
+        <label htmlFor="">제목</label>
         <input
           name="title"
           type="text"
@@ -120,7 +120,7 @@ const View = (props) => {
           value={data.title}
           style={{ fontWeight: "bold" }}
         />
-        <label htmlFor="">Description</label>
+        <label htmlFor="">내용</label>
       </form>
       <textarea
         className="text-box"
@@ -133,10 +133,14 @@ const View = (props) => {
       {data.email === userInfo[0].email ? (
         <div className="write-btn">
           <button style={{ backgroundColor: "#276CF5", margin: "0px 10px" }}>
-            <a onClick={_edit}>Edit</a>
+            <a onClick={_edit}>
+              <b>수정</b>
+            </a>
           </button>
           <button style={{ backgroundColor: "red", margin: "0px 10px" }}>
-            <a onClick={_delete}>Delete</a>
+            <a onClick={_delete}>
+              <b>삭제</b>
+            </a>
           </button>
         </div>
       ) : (
