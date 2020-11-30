@@ -1,0 +1,218 @@
+$phone: "Only screen and (max-width : 767px)";
+$desktop: "Only screen and (min-width : 768px)";
+
+@media #{$desktop} {
+  .board {
+    margin: 15px;
+    .board-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        color: #405943;
+        font-size: 70px;
+      }
+      .type10 {
+        border-collapse: collapse;
+        text-align: left;
+        line-height: 1.5;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin: 20px 10px;
+
+        thead {
+          tr {
+            th {
+              width: 150px;
+              padding: 20px;
+              font-weight: bold;
+              vertical-align: top;
+              color: #fff;
+              background: #405943;
+              margin: 20px 10px;
+            }
+          }
+        }
+        tbody {
+          tr {
+            &:hover {
+              cursor: pointer;
+              background-color: #87acf5;
+              color: white;
+              font-weight: bold;
+
+              transition: all 0.3s ease-in-out;
+            }
+            th {
+              width: 150px;
+              padding: 20px;
+            }
+            td {
+              width: 350px;
+              padding: 20px;
+              p {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .page-count {
+      button {
+        margin: 0px 5px;
+        color: white;
+        padding: 5px;
+        border: none;
+        background-color: #405943;
+        outline: none;
+      }
+    }
+
+    .write-btn {
+      display: flex;
+      justify-content: center;
+      margin: 15px;
+      button {
+        width: 100px;
+        padding: 15px 0;
+        font-size: 20px;
+        text-transform: uppercase;
+        background-color: #405943;
+        outline: none;
+        border: none;
+        font-family: "Acme", sans-serif;
+        cursor: pointer;
+        border-radius: 8px;
+
+        a {
+          color: white;
+        }
+      }
+    }
+    .shop_btn {
+      width: 100%;
+      border-top: 1px solid lightgray;
+      padding-top: 20px;
+      text-align: center;
+      button {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: none;
+        margin: 0 10px;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media #{$phone} {
+  .board {
+    margin: 15px;
+    .board-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        color: #405943;
+        font-size: 70px;
+      }
+      .type10 {
+        border-collapse: collapse;
+        text-align: left;
+        line-height: 1.5;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin: 20px 10px;
+
+        thead {
+          tr {
+            th {
+              width: 150px;
+              padding: 20px;
+              font-weight: bold;
+              vertical-align: top;
+              color: #fff;
+              background: #405943;
+              margin: 20px 10px;
+            }
+          }
+        }
+        tbody {
+          tr {
+            th {
+              width: 150px;
+              padding: 10px;
+            }
+            td {
+              width: 350px;
+              padding: 10px;
+              p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* 라인수 */
+                -webkit-box-orient: vertical;
+                word-wrap: break-word;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .page-count {
+      button {
+        margin: 0px 5px;
+        color: white;
+        padding: 5px;
+        border: none;
+        background-color: #405943;
+        outline: none;
+      }
+    }
+
+    .write-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin: 5px 25px;
+      button {
+        width: 100px;
+        padding: 10px 0;
+        font-size: 15px;
+        text-transform: uppercase;
+        background-color: #405943;
+        outline: none;
+        border: none;
+        font-family: "Acme", sans-serif;
+        cursor: pointer;
+        border-radius: 8px;
+        a {
+          color: white;
+        }
+      }
+    }
+    .shop_btn {
+      width: 100%;
+      border-top: 1px solid lightgray;
+      padding-top: 16px;
+      text-align: center;
+      button {
+        padding: 6px 10px;
+        border-radius: 4px;
+        border: none;
+        margin: 0 8px;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}

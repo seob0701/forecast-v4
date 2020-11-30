@@ -1,0 +1,124 @@
+$phone: "Only screen and (max-width : 767px)";
+$desktop: "Only screen and (min-width : 768px)";
+
+@media #{$desktop} {
+  .board {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .board-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        color: #405943;
+        font-size: 70px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      input {
+        width: 650px;
+        padding: 20px;
+        border: 2px solid #405943;
+        margin: 10px 0px;
+      }
+    }
+    textarea {
+      resize: none;
+      width: 650px;
+      height: 300px;
+      margin: 15px;
+      padding: 20px;
+      border: 2px solid #405943;
+    }
+
+    .write-btn {
+      display: flex;
+      margin: 15px;
+      button {
+        width: 100px;
+        padding: 15px 0;
+        font-size: 20px;
+        text-transform: uppercase;
+        background-color: #405943;
+        outline: none;
+        border: none;
+        font-family: "Acme", sans-serif;
+        cursor: pointer;
+        border-radius: 8px;
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media #{$phone} {
+  .board {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .board-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        color: #405943;
+        font-size: 70px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      input {
+        width: 400px;
+        padding: 20px;
+        border: 2px solid #405943;
+        margin: 10px 0px;
+      }
+    }
+    textarea {
+      resize: none;
+      width: 400px;
+      height: 400px;
+      margin: 15px;
+      padding: 20px;
+      border: 2px solid #405943;
+    }
+
+    .write-btn {
+      display: flex;
+      margin: 15px;
+      button {
+        width: 100px;
+        padding: 15px 0;
+        font-size: 20px;
+        text-transform: uppercase;
+        background-color: #405943;
+        outline: none;
+        border: none;
+        font-family: "Acme", sans-serif;
+        cursor: pointer;
+        border-radius: 8px;
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
