@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../scss/calc.scss";
 import { TiWeatherSunny, TiWeatherDownpour } from "react-icons/ti";
 import { BiCalculator } from "react-icons/bi";
-import { GrMapLocation } from "react-icons/gr";
 import Axios from "axios";
 // import tf from "@tensorflow/tfjs";
 
@@ -13,10 +12,22 @@ const Calc = () => {
   model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
   model.compile({ loss: "meanSquaredError", optimizer: "sgd" });
 
+  const [locationWeather, setLocationWeather] = useState({
+    curTemp: "",
+    maxTemp: "",
+    minTemp: "",
+    rainFall: "",
+  });
+
   const training = (data) => {
     console.log(data);
     const valueSum = data.avgTemp + data.maxTemp + data.minTemp + data.rainFall;
-    console.log(valueSum);
+    const myData =
+      locationWeather.curTemp * 1 +
+      locationWeather.maxTemp * 1 +
+      locationWeather.minTemp * 1 +
+      locationWeather.rainFall * 1;
+    console.log(myData);
     let xs = tf.tensor([valueSum / 40], [1]);
     let ys = tf.tensor([data.avgPrice], [1]);
 
@@ -26,12 +37,13 @@ const Calc = () => {
         callbacks: {
           onEpochEnd: (epoch, log) =>
             console.log(`Epoch ${epoch}: loss = ${log.loss}`),
+          // console.log(),
         },
       })
       .then(() => {
         // Test data Inference
-        //  model.predict(tf.tensor([(valueSum)/40], [1])).print();
-        var predic = model.predict(tf.tensor([valueSum / 40], [1]));
+        // model.predict(tf.tensor([(valueSum)/40], [1])).print();
+        var predic = model.predict(tf.tensor([myData / 40], [1]));
         let preToStr = String(predic);
         var regex = /[^0-9.]/g;
         let result = preToStr.replace(regex, "");
@@ -57,30 +69,18 @@ const Calc = () => {
   const [lat, setLat] = useState("37.554722");
   const [lon, setLon] = useState("126.970833");
 
-  const [locationWeather, setLocationWeather] = useState({
-    timezone: "", //위치
-    daily: [
-      {
-        feels_like: {
-          night: "",
-        },
-        temp: {
-          max: "", //최대온도
-          min: "", //최소온도
-        },
-      },
-    ],
-    hourly: [
-      {
-        temp: "", //현재온도
-      },
-    ],
-    minutely: [
-      {
-        precipitation: "", //강수량
-      },
-    ],
-  });
+  const tempChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "curTemp") {
+      setLocationWeather({ ...locationWeather, curTemp: value });
+    } else if (name === "maxTemp") {
+      setLocationWeather({ ...locationWeather, maxTemp: value });
+    } else if (name === "minTemp") {
+      setLocationWeather({ ...locationWeather, minTemp: value });
+    } else {
+      setLocationWeather({ ...locationWeather, rainFall: value });
+    }
+  };
 
   const getPrice = (postdate) => {
     Axios.post("http://localhost:3001/price", {
@@ -93,23 +93,26 @@ const Calc = () => {
       `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
     )
       .then((response) => response.json())
-      // .then((json) => console.log(json));
-      .then((json) => setLocationWeather(json));
-  };
+      .then((json) => {
+        setLocationWeather({
+          curTemp: Math.round(
+            (json.daily[0].temp.max + json.daily[0].feels_like.night) / 2
+          ),
+          maxTemp: Math.round(json.daily[0].temp.max),
+          minTemp: Math.round(json.daily[0].feels_like.night),
+          rainFall: Math.round(json.minutely[0].precipitation),
+        });
+      });
+    // .then((json) => setLocationWeather(json));
 
-  const getDate = () => {
-    let date = new Date();
-    let getY = date.getFullYear();
-    let getM = date.getMonth() + 1;
-    let getD = date.getDate();
-
-    setCurrentDate(`${getY}${getM}${getD}`);
+    // setTemp();
   };
 
   useEffect(() => {
     getWeather(lat, lon);
+    // console.log(locationWeather.hourly[0].temp);
     // getPrice();
-    getDate();
+    // getDate();
   }, []);
 
   // console.log(currentDate);
@@ -142,16 +145,8 @@ const Calc = () => {
       // console.log(`${dvy}${dvm}${dvd}`);
       // console.log(currentDate);
 
-      if (currentDate <= `${dvy}${dvm}${dvd}`) {
-        const postdate = `2017${dvm}${dvd}`;
-        getPrice(postdate);
-      } else {
-        let date = new Date();
-        let getY = date.getFullYear();
-        let getM = date.getMonth() + 1;
-        let getD = date.getDate();
-        alert(`${getY}년 ${getM}월 ${getD}일 이후의 날짜를 입력해주세요`);
-      }
+      const postdate = `2017${dvm}${dvd}`;
+      getPrice(postdate);
 
       // setDateValue({ ...dateValue, YYYYMMDD: `${dvy}${dvm}${dvd}` });
       // setDateValue({ ...dateValue, POSTDATE: `2017${dvm}${dvd}` });
@@ -164,16 +159,16 @@ const Calc = () => {
     const { name, value } = e.target;
     if (name === "month") {
       if (
-        value === "1" ||
-        value === "3" ||
-        value === "5" ||
-        value === "7" ||
-        value === "8" ||
-        value === "10" ||
-        value === "12"
+        value * 1 === 1 ||
+        value * 1 === 3 ||
+        value * 1 === 5 ||
+        value * 1 === 7 ||
+        value * 1 === 8 ||
+        value * 1 === 10 ||
+        value * 1 === 12
       ) {
         setMax(31);
-      } else if (value === "2") {
+      } else if (value * 1 === 2) {
         setMax(28);
       } else {
         setMax(30);
@@ -230,34 +225,46 @@ const Calc = () => {
               <b>일</b>
             </div>
             <label htmlFor="">
-              <b>기준 위치 및 강수량</b>
-            </label>
-            <div>
-              <GrMapLocation />
-              <input
-                type="text"
-                value={locationWeather.timezone}
-                readOnly
-                style={{ width: "50%", marginRight: "8px" }}
-              />
-              <TiWeatherDownpour />
-              <input
-                type="text"
-                value={locationWeather.minutely[0].precipitation}
-                readOnly
-                style={{ width: "50%" }}
-              />
-            </div>
-            <label htmlFor="">
               <b>기온</b>
             </label>
             <div>
               <TiWeatherSunny />
+              <label htmlFor="">평균</label>
+              <input
+                type="number"
+                name="curTemp"
+                style={{ width: "40px", marginRight: "10px" }}
+                value={locationWeather.curTemp}
+                onChange={tempChange}
+              />
+              <label htmlFor="">최대</label>
+              <input
+                type="number"
+                name="maxTemp"
+                style={{ width: "40px", marginRight: "10px" }}
+                value={locationWeather.maxTemp}
+                onChange={tempChange}
+              />
+              <label htmlFor="">최소</label>
+              <input
+                type="number"
+                name="minTemp"
+                style={{ width: "40px", marginRight: "10px" }}
+                value={locationWeather.minTemp}
+                onChange={tempChange}
+              />
+            </div>
+
+            <label htmlFor="">
+              <b>강수량</b>
+            </label>
+            <div>
+              <TiWeatherDownpour />
               <input
                 type="text"
+                value={locationWeather.rainFall}
+                onChange={tempChange}
                 style={{ flex: "1" }}
-                value={`현재: ${locationWeather.hourly[0].temp} 최대: ${locationWeather.daily[0].temp.max} 최소: ${locationWeather.daily[0].feels_like.night}`}
-                readOnly
               />
             </div>
 

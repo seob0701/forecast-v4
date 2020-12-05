@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const nodemailer = require('nodemailer');
 
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
@@ -35,6 +36,41 @@ app.use(
 
 // parse application/json
 // app.use(bodyParser.json());
+
+const smtpTransport = nodemailer.createTransport({
+  service: "Gmail",
+  auth: {
+      user: "mailforecast@gmail.com",
+      pass: "forecast"
+  },
+  tls: {
+      rejectUnauthorized: false
+  }
+});
+
+app.post('/emailAuth', async(req, res) => {
+
+  const mailOptions = {
+    from: req.body.email,
+    to: req.body.to,
+    subject:req.body.title,
+    html: `
+    <h2>From : ${req.body.email}</h2>
+    <br/>
+    <b>${req.body.msg}</b>
+    `
+  };
+  
+  await smtpTransport.sendMail(mailOptions, (error, responses) =>{
+      if(error){
+          res.json({msg:'err'});
+      }else{
+          res.json({msg:'sucess'});
+      }
+      smtpTransport.close();
+  });
+
+});
 
 const db = mysql.createConnection({
   user: "root",

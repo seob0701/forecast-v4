@@ -1,6 +1,6 @@
 $phone: "Only screen and (max-width : 768px)";
-$pad: "Only screen and (max-width : 1669px)";
-$desktop: "Only screen and (min-width : 1670px)";
+$pad: "Only screen and (max-width : 1569px)";
+$desktop: "Only screen and (min-width : 1570px)";
 
 @import "https://fonts.googleapis.com/css?family=Baloo+Paaji";
 
@@ -13,76 +13,6 @@ body {
   height: 100%;
 }
 
-.home {
-  .home-box {
-    .cabbage-box {
-      img {
-      }
-      .container {
-        h1 span {
-          animation-delay: 0.6s;
-          -webkit-animation-fill-mode: forwards;
-
-          &:first-child {
-            animation-delay: 0.7s;
-          }
-
-          &:last-child {
-            color: $secondary-color;
-            animation-delay: 0.5s;
-          }
-        }
-
-        h2 {
-          top: 0;
-          position: absolute;
-
-          span {
-            animation-delay: 4.1s;
-            -webkit-animation-fill-mode: forwards;
-
-            &:first-child {
-              animation-delay: 4.2s;
-            }
-
-            &:last-child {
-              color: $secondary-color;
-              animation-delay: 4s;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@keyframes titleAnimation {
-  0% {
-    transform: translateY(-50px);
-    opacity: 0;
-    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-  }
-  20% {
-    transform: translateY(0);
-    opacity: 1;
-    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-  }
-  80% {
-    transform: translateY(0);
-    opacity: 1;
-    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
-  }
-  100% {
-    transform: translateY(50px);
-    opacity: 0;
-    -webkit-clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
-    clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
-  }
-}
-
 @media #{$desktop} {
   .home {
     .home-box {
@@ -93,38 +23,13 @@ body {
         position: relative;
 
         margin: 30px;
-        img {
-          width: 100%;
-          max-width: 1000px;
-        }
-
-        .container {
-          width: 400px;
-          height: 220px;
-          position: absolute;
-          top: 30%;
-          left: 30%;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-        }
-        h1,
-        h2 {
-          font-size: 75px;
-          text-transform: uppercase;
-
-          span {
-            width: 100%;
-            float: left;
-            color: $tertiary-color;
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-            transform: translateY(-50px);
-            opacity: 0;
-            animation-name: titleAnimation;
-            animation-timing-function: ease;
-            animation-duration: 3s;
+        div {
+          .weather_iframe {
+            width: 1000px;
+            height: 738px;
           }
         }
+
         .calc {
         }
       }
@@ -144,38 +49,14 @@ body {
         align-items: center;
         // position: relative;
         margin: 30px;
-        img {
-          width: 100%;
-          max-width: 1000px;
-        }
 
-        .container {
-          width: 400px;
-          height: 220px;
-          position: absolute;
-          top: 40%;
-          left: 40%;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-        }
-        h1,
-        h2 {
-          font-size: 3rem;
-          text-transform: uppercase;
-
-          span {
-            width: 100%;
-            float: left;
-            color: $tertiary-color;
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-            transform: translateY(-50px);
-            opacity: 0;
-            animation-name: titleAnimation;
-            animation-timing-function: ease;
-            animation-duration: 3s;
+        .ifraim_cont {
+          .weather_iframe {
+            width: 700px;
+            height: 738px;
           }
         }
+
         .calc {
           // position: absolute;
           background-color: white;
@@ -195,38 +76,11 @@ body {
         flex-direction: column;
         align-items: center;
         margin: 20px;
-        img {
-          width: 100%;
-          min-height: 490px;
-          max-width: 1000px;
-          object-fit: cover;
-        }
 
-        .container {
-          width: 400px;
-          height: 220px;
-          position: absolute;
-          top: 50%;
-          left: 60%;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-        }
-        h1,
-        h2 {
-          font-size: 30px;
-          text-transform: uppercase;
-
-          span {
-            width: 100%;
-            float: left;
-            color: $tertiary-color;
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
-            transform: translateY(-50px);
-            opacity: 0;
-            animation-name: titleAnimation;
-            animation-timing-function: ease;
-            animation-duration: 3s;
+        .ifraim_cont {
+          .weather_iframe {
+            max-width: 400px;
+            height: 738px;
           }
         }
         .calc {

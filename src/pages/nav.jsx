@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "../scss/nav.scss";
+import { useLocation } from "react-router-dom";
 import { ImLeaf, ImMenu } from "react-icons/im";
 
 Axios.defaults.withCredentials = true;
 
 const Nav = () => {
+  const location = useLocation();
   const [toggle, setToggle] = useState(true);
   const [loggedStatus, setLoggedStatus] = useState(false);
   const [userInfo, setUserInfo] = useState([]);
@@ -54,13 +56,18 @@ const Nav = () => {
               );
             })}
 
-            <li>
+            <li onClick={(location.href = "/http://localhost:3000/about")}>
               <a href="/about">소개</a>
             </li>
-            <li>
+            <li onClick={(location.href = "/board")}>
               <a href="/board">게시판</a>
             </li>
-            <li>
+            {loggedStatus && (
+              <li onClick={(location.href = "/mail")}>
+                <a href="/mail">메일</a>
+              </li>
+            )}
+            <li onClick={_logout}>
               {loggedStatus ? (
                 <a style={{ cursor: "pointer" }} onClick={_logout}>
                   로그아웃
@@ -69,8 +76,9 @@ const Nav = () => {
                 <a href="/login">로그인</a>
               )}
             </li>
+
             {!loggedStatus && (
-              <li>
+              <li onClick={(location.href = "/register")}>
                 <a href="/register">회원가입</a>
               </li>
             )}

@@ -4,7 +4,7 @@ import "../scss/board.scss";
 
 import { withRouter } from "react-router-dom";
 
-const Board = (props) => {
+const Board = () => {
   const [lists, setLists] = useState([]);
   const [pages, setPages] = useState([]);
 
@@ -97,13 +97,13 @@ const Board = (props) => {
         })}
       </div>
       <div className="write-btn">
-        <button>
+        <button className="wbtn">
           <a href="/write">
             <b>작성하기</b>
           </a>
         </button>
       </div>
-      <div className="shop_btn">
+      {/* <div className="shop_btn">
         <h3>쇼핑몰 바로가기</h3>
         <button style={{ background: "#e73302" }}>
           <a
@@ -129,7 +129,7 @@ const Board = (props) => {
             티몬
           </a>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

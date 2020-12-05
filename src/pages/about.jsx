@@ -17,41 +17,34 @@ const About = () => {
           <div className="ptag-box">
             <img src={covid} alt="" />
             <p>
-              The human race is now suffering from a disaster, Corona19.
-              Although Korea has achieved relatively little damage due to the
-              virus prevention, advanced countries such as the United States and
-              Europe have reached beyond imagination the number of infections
-              and deaths. Only a year ago, the world regarded free exchange as
-              the highest value, but now it's locked inside and out to prevent
-              infectious diseases. The efficiency of the international division
-              of labor based on comparative advantage only amplifies the crisis
-              in the face of infectious diseases. Countries around the world are
-              turning to their own priorities, and free trade is declining at a
-              certain level. Stable production of food has become more urgent
-              due to post-corona measures. We need to come up with measures to
-              raise the food self-sufficiency rate. In order to produce food for
-              the people in a stable manner, we need to lay the foundation for
-              farmers to farm safely. Through this project, farmers can adapt to
-              changes in conditions through observation and establish supply and
-              demand measures in advance. This eventually leads to rational
-              farming and consumption.
+              인류는 지금 일찍이 경험하지 못한 재난, 코로나19를 겪고 있습니다.
+              우리 나라는 바이러 스 방역에 성과를 거둬 상대적으로 피해가 적지만,
+              미국이나 유럽 등 선진국들은 감염자수 와 사망자수가 상상을 초월하는
+              사태에 이르렀습니다. 불과 일 년 전만 해도 세계는 자유로 운 교류를
+              최고의 가치로 여겨왔지만, 지금은 감염병을 막기위해 안팎으로 문을
+              걸어 잠그 고 있습니다. 비교우위론에 입각한 국제분업질서의 효율성은
+              감염병 앞에선 위기를 증폭시 킬 뿐입니다. 세계 각국은 자국
+              우선주의로 급선회하고있으며, 자유무역은 일정한 수준에서 는
+              퇴조하고 있습니다. 포스트코로나 대책으로 식량의 안정적 생산은 더욱
+              절실해졌습니다. 식량자급률을 어떻게 올릴 것인가에 대한 대책을
+              마련해야 합니다. 국민의 식량을 안정적으 로 생산하기 위해서는
+              농민들이 안심하고 농사지을 수 있는 토대를 만들어야 합니다. 이번
+              프로젝트를 통해 농업인들은 관측을 통해 여건변화에 적응하고, 사전에
+              수급대책을 수립할 수 있습니다. 이는 결국 합리적인 영농활동과
+              소비로 이어지게 됩니다
             </p>
           </div>
           <div className="ptag-box">
             <p>
-              An American futurist named Jason Shanker predicted that as the
-              food problem rose from Corona 19 in "The World After Corona," more
-              attention will be paid to agriculture than any other time in the
-              future for national security. Agriculture is dominated by the
-              natural environment, but farmers can adapt to changes in
-              conditions through observation and establish supply and demand
-              measures in advance. Through supply and demand and price
-              forecasts, farmers can engage in reasonable farming activities and
-              consumers can also make reasonable consumption if they can predict
-              the price of agricultural products. The goal of this project is to
-              support reasonable farming activities and consumption by
-              predicting the supply and demand of cabbage among various
-              agricultural products.
+              제이슨 솅커라는 미국인 미래학자는 ‘코로나 이후의 세계’에서
+              코로나19로 식량문제가 대 두됨에 따라, 국가안보를 위해 앞으로 그
+              어떤 시기보다 더 많은 관심이 농업 분야에 쏟아 질 것이라고
+              예견했습니다. 농업은 자연환경에 지배받지만, 농업인들은 관측을 통해
+              여건변 화에 적응하고, 사전에 수급대책을 수립할 수 있습니다. 수급
+              및 가격전망 등을 통해 농업 인은 합리적인 영농활동이 가능하고
+              소비자 또한 농산물의 가격을 예측할 수 있다면 합리적 인 소비를 할
+              수 있습니다. 이번 프로젝트의 목표는 다양한 농산물 중 배추의 수급과
+              가격을 예측하여 합리적인 영농 활동과 소비를 지원하는 것입니다.
             </p>
             <img src={agriculture} alt="" />
           </div>

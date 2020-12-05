@@ -23,6 +23,39 @@ $desktop: "Only screen and (min-width : 768px)";
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      .writerInfo {
+        display: flex;
+        width: 100%;
+        border: 2px solid #405943;
+        margin-bottom: 10px;
+        div {
+          display: flex;
+          align-items: center;
+          margin: 0 10px;
+          p {
+            margin-left: 5px;
+          }
+          a {
+            margin-left: 5px;
+            color: #405943;
+            cursor: pointer;
+            &:hover {
+              color: #276cf5;
+            }
+          }
+          label {
+            margin-right: 5px;
+          }
+          input {
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #405943;
+            margin: 0;
+            padding: 0;
+            width: auto;
+          }
+        }
+      }
       input {
         width: 650px;
         padding: 20px;
@@ -44,8 +77,8 @@ $desktop: "Only screen and (min-width : 768px)";
       margin: 15px;
       button {
         width: 100px;
-        padding: 15px 0;
-        font-size: 20px;
+        padding: 8px 0;
+        // font-size: 20px;
         text-transform: uppercase;
         background-color: #405943;
         outline: none;
@@ -54,7 +87,7 @@ $desktop: "Only screen and (min-width : 768px)";
         cursor: pointer;
         border-radius: 8px;
 
-        a {
+        b {
           color: white;
         }
       }
@@ -84,6 +117,37 @@ $desktop: "Only screen and (min-width : 768px)";
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      .writerInfo {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 2px solid #405943;
+        margin-bottom: 10px;
+        align-items: center;
+        div {
+          display: flex;
+          align-items: center;
+          margin: 0 10px;
+          height: 30px;
+          p {
+            margin-left: 5px;
+          }
+          a {
+            margin-left: 5px;
+          }
+          label {
+            margin-right: 5px;
+          }
+          input {
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #405943;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+          }
+        }
+      }
       input {
         width: 400px;
         padding: 20px;
@@ -105,8 +169,8 @@ $desktop: "Only screen and (min-width : 768px)";
       margin: 15px;
       button {
         width: 100px;
-        padding: 15px 0;
-        font-size: 20px;
+        padding: 8px 0;
+        // font-size: 20px;
         text-transform: uppercase;
         background-color: #405943;
         outline: none;
@@ -115,7 +179,7 @@ $desktop: "Only screen and (min-width : 768px)";
         cursor: pointer;
         border-radius: 8px;
 
-        a {
+        b {
           color: white;
         }
       }

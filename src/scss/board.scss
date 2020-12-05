@@ -75,9 +75,9 @@ $desktop: "Only screen and (min-width : 768px)";
       display: flex;
       justify-content: center;
       margin: 15px;
-      button {
+      .wbtn {
         width: 100px;
-        padding: 15px 0;
+        padding: 4px 0;
         font-size: 20px;
         text-transform: uppercase;
         background-color: #405943;
@@ -89,6 +89,9 @@ $desktop: "Only screen and (min-width : 768px)";
 
         a {
           color: white;
+        }
+        b {
+          font-size: 16px;
         }
       }
     }
@@ -183,9 +186,9 @@ $desktop: "Only screen and (min-width : 768px)";
       display: flex;
       justify-content: flex-end;
       margin: 5px 25px;
-      button {
+      .wbtn {
         width: 100px;
-        padding: 10px 0;
+        padding: 4px 0;
         font-size: 15px;
         text-transform: uppercase;
         background-color: #405943;
@@ -196,6 +199,9 @@ $desktop: "Only screen and (min-width : 768px)";
         border-radius: 8px;
         a {
           color: white;
+          b {
+            font-size: 16px;
+          }
         }
       }
     }

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "../scss/write.scss";
 import { withRouter } from "react-router-dom";
+import { MdMail } from "react-icons/md";
+import { HiUserCircle } from "react-icons/hi";
+import { BiCalendarEdit } from "react-icons/bi";
 
 const View = (props) => {
   const [data, setData] = useState({
@@ -14,6 +17,10 @@ const View = (props) => {
   });
 
   const [userInfo, setUserInfo] = useState([{ email: "" }]);
+
+  const _handleClick = (ele) => {
+    window.location.href = `/mail/${ele}`;
+  };
 
   const _handleChange = (e) => {
     if (data.email === userInfo[0].email) {
@@ -105,13 +112,20 @@ const View = (props) => {
 
       <form action="">
         <label htmlFor="">작성자 정보</label>
-        <input
-          name="title"
-          type="text"
-          value={`작성자: ${data.name}   이메일: ${data.email}   날짜: ${data.date}`}
-          style={{ fontWeight: "bold" }}
-          readOnly
-        />
+        <div className="writerInfo">
+          <div>
+            <MdMail />
+            <a onClick={() => _handleClick(data.email)}>{data.email}</a>
+          </div>
+          <div>
+            <HiUserCircle />
+            <p>{data.name}</p>
+          </div>
+          <div>
+            <BiCalendarEdit />
+            <p>{data.date}</p>
+          </div>
+        </div>
         <label htmlFor="">제목</label>
         <input
           name="title"
