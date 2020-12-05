@@ -42,7 +42,8 @@ function App() {
     <div className="App">
       <Nav />
       <Switch>
-      <RouteIf path="/" exact component={Home} role={loggedStatus} />
+      {/* <RouteIf path="/" exact component={Home} role={loggedStatus} /> */}
+        <Route path="/" exact component={Home} />
         <Route path="/about" component={About} />
         <Route path="/board" component={Board} />
         <Route path="/login" component={Login} />
